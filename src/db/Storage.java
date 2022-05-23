@@ -10,10 +10,10 @@ public class Storage {
 //        return petrols.toString();
 //    }
 
-    @Override
-    public String toString() {
-        return "Storage{}";
-    }
+//    @Override
+//    public String toString() {
+//        return "Storage{}";
+//    }
 
     public final static ArrayList<Petrol> petrols = new ArrayList<>();
 }

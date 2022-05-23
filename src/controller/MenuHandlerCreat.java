@@ -7,9 +7,9 @@ import java.util.Scanner;
 
 public class MenuHandlerCreat {
     public static void mileage() {
-        Petrol obj = new Petrol();
-        int speedometerExitBuffer = obj.getSpeedometerExit();
-        double remainingFuelExitBuffer = obj.getRemainingFuelExit();
+        int speedometerExitBuffer = 91509;
+        double remainingFuelExitBuffer = 153.99;
+        double standardFuelConsumptionBuffer = 9.46;
         int dictanceBuffer = 1;
         Scanner scanMileage = new Scanner(System.in);
 
@@ -22,6 +22,7 @@ public class MenuHandlerCreat {
                 objpetrol.setDictance(dictanceBuffer);
                 objpetrol.setSpeedometerExit(speedometerExitBuffer);
                 objpetrol.setRemainingFuelExit(remainingFuelExitBuffer);
+                objpetrol.setStandardFuelConsumption(standardFuelConsumptionBuffer);
                 objpetrol.setFuelUsed(Math.round(objpetrol.getStandardFuelConsumption() * objpetrol.getDictance()) / (double) 100);  // Метод округления: double roundOff = Math.round(a * 100.0) / (double)100.0; O utput is: 123.14
                 System.out.println("расход бензина: " + objpetrol.getFuelUsed() + " л.");
                 objpetrol.setSpeedometerEntry(objpetrol.getSpeedometerExit() + objpetrol.getDictance());

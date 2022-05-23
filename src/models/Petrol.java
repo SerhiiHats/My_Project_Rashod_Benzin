@@ -2,15 +2,15 @@ package models;
 
 public class Petrol {
     private String data = "22.05.2022";             // дата, текущая или устанавливаемая
-    private int speedometerExit = 91509;            // показания спидометра при выезде, км
+    private int speedometerExit;            // показания спидометра при выезде, км
     private int speedometerEntry;                   // показания спидометра при возвращении на базу, км
     private int dictance;                           // пробег за день, растояние, км.
-    private double remainingFuelExit = 153.99;      // остаток топлива при выезде, л.
+    private double remainingFuelExit;      // остаток топлива при выезде, л.
     private double issuedFuel;                      // выдано топлива, л.
     private double filledFuel;                      // заправлено топлива, л.
     private double remainingFuelEntry;              // остаток топлива при возвращении на базу, л.
     private double fuelUsed;                        // израсходовано топлива, л.
-    private double standardFuelConsumption = 9.46;  // нормативный расход топлива, л
+    private double standardFuelConsumption;  // нормативный расход топлива, л
 
     public Petrol(String data, int speedometerExit, int speedometerEntry, int dictance, double remainingFuelExit, double issuedFuel, double filledFuel, double remainingFuelEntry, double fuelUsed, double standardFuelConsumption) {
         this.data = data;
