@@ -1,7 +1,7 @@
 package models;
 
 public class Petrol {
-    private String data = "22.05.2022";             // дата, текущая или устанавливаемая
+    private String data;             // дата, текущая или устанавливаемая
     private int speedometerExit;            // показания спидометра при выезде, км
     private int speedometerEntry;                   // показания спидометра при возвращении на базу, км
     private int dictance;                           // пробег за день, растояние, км.

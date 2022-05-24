@@ -3,6 +3,8 @@ package controller;
 import db.Storage;
 import models.Petrol;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class MenuHandlerCreat {
@@ -11,6 +13,10 @@ public class MenuHandlerCreat {
         double remainingFuelExitBuffer = 153.99;
         double standardFuelConsumptionBuffer = 9.46;
         int dictanceBuffer = 1;
+        Date dataNow = new Date();                                                // Создадим обект класса дата для определения текущего времени
+        SimpleDateFormat formatData = new SimpleDateFormat("dd.MM.yyyy");  // сформатируем дату конструктором в формат dd.MM.yyyy
+        String formatedDataNow = formatData.format(dataNow);                      // парсим дату в стринг для ее дальнейшего корректного отображения
+
         Scanner scanMileage = new Scanner(System.in);
 
         while (dictanceBuffer != 0) {
@@ -19,6 +25,7 @@ public class MenuHandlerCreat {
             System.out.print("Введите пробег за день в км.: ");
             dictanceBuffer = scanMileage.nextInt();
             if (dictanceBuffer != 0) {
+                objpetrol.setData(formatedDataNow);
                 objpetrol.setDictance(dictanceBuffer);
                 objpetrol.setSpeedometerExit(speedometerExitBuffer);
                 objpetrol.setRemainingFuelExit(remainingFuelExitBuffer);
