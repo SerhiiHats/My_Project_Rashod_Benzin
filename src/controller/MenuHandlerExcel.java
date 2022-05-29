@@ -1,16 +1,13 @@
 package controller;
 
-import db.Storage;
 import models.Petrol;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddress;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 
 import static db.Storage.petrols;
 
@@ -175,7 +172,11 @@ public class MenuHandlerExcel {
             cell.setCellStyle(style2);
             // ячейка 6 - G
             cell = row.createCell(6, CellType.STRING);
-            cell.setCellValue(" ");
+            if (p.getIssuedFuel() == 0) {
+                cell.setCellValue("");
+            } else {
+                cell.setCellValue(p.getIssuedFuel());
+            }
             cell.setCellStyle(style2);
             // ячейка 7 - H
             cell = row.createCell(7, CellType.NUMERIC);
@@ -199,6 +200,10 @@ public class MenuHandlerExcel {
         String formula = "SUM(E" + (beginnum + 1) + ":E" + rownum + ")";     // создаем переменную с записаной формулой
         cell = row.createCell(4, CellType.FORMULA);         // создаем ячейку куда вставим формулу
         cell.setCellFormula(formula);                            // вставляем в ячейку формулу
+
+        String formula0 = "SUM(G" + (beginnum + 1) + ":G" + rownum + ")";     // создаем переменную с записаной формулой
+        cell = row.createCell(6, CellType.FORMULA);         // создаем ячейку куда вставим формулу
+        cell.setCellFormula(formula0);                            // вставляем в ячейку формулу
 
         String formula1 = "SUM(H" + (beginnum + 1) + ":H" + rownum + ")";
         cell = row.createCell(7, CellType.FORMULA);      // укороченная версия кода - row.createCell(7).setCellFormula(formula1);
